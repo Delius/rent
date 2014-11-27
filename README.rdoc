@@ -1,3 +1,3 @@
 == README
 
-this is a rentayield calculator <a href="https://sheltered-ocean-3337.herokuapp.com">Live on Heroku</a>
+this is a rentayield calculator https://sheltered-ocean-3337.herokuapp.com
