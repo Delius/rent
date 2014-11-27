@@ -5,7 +5,7 @@ before_save  :year_return, :year_return_percent
 before_create  :year_return, :year_return_percent
 
 before_validation :upcase_post_code
-before_validation :shorten_post_code
+after_validation :shorten_post_code
 
 
 
@@ -21,13 +21,11 @@ def year_return_percent
 end
 
 def upcase_post_code
-
   self.postCode = self.postCode.upcase
 
 end
 
 def shorten_post_code
-
   self.postCode = self.postCode.gsub(/\s.*/, '')
 
 end
