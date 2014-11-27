@@ -1,0 +1,33 @@
+<h3>Properties near <%= @property.postCode.upcase %></h3>
+
+
+<% @data.map do |i| %>
+
+    <div class="panel callout radius">
+      <div class="panel callout radius">
+        <%= image_tag(i['img_url']) %>
+      </div>
+      <div class="panel">
+        <p>Bedrooms: <%= i['bedroom_number'] %></p>
+        <p>Description: <%= i['title'] %></p>
+        <p>Rent: <%= i['price_formatted'] %></p>
+
+        <% if i['price_type'] == "weekly" %>
+
+            <% year_return = (i['price'] * 4) * 12 %>
+
+        <% else %>
+
+            <% year_return = i['price'] * 12 %>
+
+        <% end %>
+        <div class="other-yield">
+          <h5>Yearly return: <%= number_to_currency(year_return, unit: '£') %></h5>
+
+         <h5>Yearly return (Percent):<%=(@property.year_return_percent).round(2)%>%</h5>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>

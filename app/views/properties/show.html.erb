@@ -1,9 +1,9 @@
 <div class="row">
 
-  <div class="hero col-md-6 col-md-offset-3">
+  <div class="panel">
     
-    <h3>Property yield summary</h3>
-    <h5>You're looking at a yearly rental yield of <span> <%= number_to_currency(@property.year_return, { unit: "£"}) %></span> or <span> <%=(@property.year_return_percent).round(2)%>%</span></h5>
+    <h3>Property summary</h3>
+    <h5>Return/Year <span> <%= number_to_currency(@property.year_return, { unit: "£"}) %></span> or <span> <%=(@property.year_return_percent).round(2)%>%</span></h5>
     
   </div>
 
@@ -11,9 +11,12 @@
 
 <div class="row">
 
-  <div class="yield col-md-6 col-md-offset-3">
+  <div class="panel callout radius">
 
         <%= link_to 'Edit', edit_property_path(@property) , class: 'button alert'%>
+    <%= link_to other_properties_path, remote: true do  %>
+        <button type="button" class="btn btn-lg">Compare</button>
+    <% end %>
 
   	<table class="table table-bordered">
       <tbody>
@@ -23,7 +26,7 @@
         <td><%=@property.postCode%></td>
       </tr>
       <tr>
-        <th>Property Price</th>
+        <th>Property Cost</th>
         <td><%=number_to_currency(@property.propertyCost, { unit: "£"})%></td>
       </tr>
       <tr>
@@ -31,16 +34,25 @@
         <td><%=number_to_currency(@property.propertyRent, { unit: "£"})%></td>
       </tr>
       <tr class="success">
-        <th>Net Yearly Yield</th>
+        <th>Net Yearly Return</th>
         <td><%=number_to_currency(@property.year_return, { unit: "£"})%></td>
       </tr>
       <tr >
-        <th>Net Yearly Yield Percentage</th>
+        <th>Net Yearly Return (Percent)</th>
         <td><%=(@property.year_return_percent).round(2)%>%</td>
       </tr>
     </tbody>
   		
   	</table>
+
+  </div>
+
+</div>
+<div class="row">
+
+
+
+    <div class="content"></div>
 
   </div>
 
