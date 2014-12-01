@@ -4,7 +4,8 @@
   <div class="panel">
 
     <h3>Property summary</h3>
-    <h5>Return/Year <span> <%= number_to_currency(@property.year_return, { unit: "£"}) %></span> or <span> <%=(@property.year_return_percent).round(2)%>%</span></h5>
+    <h5>Return/Year <span> <%= number_to_currency(@property.year_return, { unit: "£"}) %></span> <br>
+      Return/Year (Percent) <span> <%=(@property.year_return_percent).round(2)%>%</span></h5>
 
   </div>
 
@@ -13,10 +14,11 @@
 <div class="row">
 
   <div class="panel callout radius">
-
+    <% if user_signed_in? %>
         <%= link_to 'Edit', edit_property_path(@property) , class: 'button alert'%>
-    <%= link_to similar_path, remote: true do  %>
+        <%= link_to similar_path, remote: true do  %>
         <button type="button" class="btn btn-lg">Compare</button>
+    <% end %>
     <% end %>
 
   	<table class="table table-bordered">
@@ -50,10 +52,7 @@
 
 </div>
 <div class="row">
-
-
-
-    <div class="content"></div>
+    <div class="similar"></div>
   </div>
 
 </div>

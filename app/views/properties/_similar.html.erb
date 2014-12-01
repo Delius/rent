@@ -3,19 +3,35 @@
 <% @data.map do |i| %>
     <div class="panel callout radius">
 
-      <div class="panel">
-        <p>Bedrooms: <%= i['bedroom_number'] %></p>
-        <p>Description: <%= i['title'] %></p>
-        <p>Rent: <%= i['price_formatted'] %></p>
+      <% if i['price_type'] == "weekly" %>
+          <% year_return = (i['price'] * 4) * 12 %>
+      <% else %>
+          <% year_return = i['price'] * 12 %>
+      <% end %>
+      <div class="other-yield">
+        <h5>Return/Year: <%= number_to_currency(year_return, unit: '£') %></h5>
+        <h5>Return/Year (Percent):<%=(@property.year_return_percent).round(2)%>%</h5>
+      <table class="table table-bordered">
+        <tbody>
 
-        <% if i['price_type'] == "weekly" %>
-            <% year_return = (i['price'] * 4) * 12 %>
-        <% else %>
-            <% year_return = i['price'] * 12 %>
-        <% end %>
-        <div class="other-yield">
-         <h5>Yearly return: <%= number_to_currency(year_return, unit: '£') %></h5>
-         <h5>Yearly return (Percent):<%=(@property.year_return_percent).round(2)%>%</h5>
+        <tr>
+          <th>Bedrooms:</th>
+          <td><%= i['bedroom_number'] %></td>
+        </tr>
+        <tr>
+          <th>Description:</th>
+          <td> <%= i['title'] %></td>
+        </tr>
+        <tr>
+          <th>Rent:</th>
+          <td><%= i['price_formatted'] %></td>
+        </tr>
+
+        </tbody>
+
+      </table>
+
+
         </div>
       </div>
     </div>

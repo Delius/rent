@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_filter :authenticate_user!, only: [:new,:edit, :create,:update,:destroy]
+  before_filter :authenticate_user!, only: [:new,:edit,:index ,:create,:update,:destroy]
 
   def new
     @property = Property.new
