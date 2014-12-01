@@ -1,3 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-
+property:
+  postCode: PA16
+  propertyCost: 20000
+  propertyRent: 200
+  phone_nr: 00000000
+  user_id: 1

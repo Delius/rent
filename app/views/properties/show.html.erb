@@ -1,3 +1,4 @@
+
 <div class="row">
 
   <div class="panel">
@@ -14,7 +15,7 @@
   <div class="panel callout radius">
 
         <%= link_to 'Edit', edit_property_path(@property) , class: 'button alert'%>
-    <%= link_to other_properties_path, remote: true do  %>
+    <%= link_to similar_path, remote: true do  %>
         <button type="button" class="btn btn-lg">Compare</button>
     <% end %>
 
@@ -56,4 +57,5 @@
   </div>
 
 </div>
+
 

@@ -6,12 +6,12 @@ class Property < ActiveRecord::Base
 
 
   def year_return
-    (propertyRent * 12)
+    propertyRent * 12
 
   end
 
   def year_return_percent
-    (year_return.to_f/propertyCost) * 100
+    year_return.to_f/propertyCost * 100
 
   end
 

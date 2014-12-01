@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
 
-  def other_properties
+  def similar
     @property = Property.find(params[:id])
     @response = HTTParty.get("http://api.nestoria.co.uk/api?place_name=#{@property.postCode}&action=search_listings&pretty=1&encoding=json&listing_type=rent&country=uk")
     @data = @response['response']['listings']

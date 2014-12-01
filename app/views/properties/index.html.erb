@@ -1,2 +1,15 @@
+<h1 class="text-center">Calculated Postcodes</h1>
 
+<% @properties.each do |property| %>
 
+    <div class="panel callout radius">
+
+    <strong><%= link_to property.postCode,  property %></strong>
+      <%=  time_ago_in_words(property.created_at ) %> ago,
+      <strong>yield <%=(property.year_return_percent).round(2)%>%,</strong>
+      <strong>Price <%=(property.propertyCost).round(2)%></strong>
+      <br>
+
+    </div>
+    <%end%>
+<%= will_paginate @properties, renderer: FoundationPagination::Rails %>

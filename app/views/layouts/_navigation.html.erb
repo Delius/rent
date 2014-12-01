@@ -13,6 +13,8 @@
 
               <ul class="right">
                  <% if user_signed_in? %>
+                 <li class="active"><%= link_to "New Calculation",  root_path %></li>
+                 <li><%= link_to "Performed Calculations",  properties_path %></li>
                      <li><%= link_to "#{current_user.email}" %></li>
                  <li class="active"><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                      <% else %>

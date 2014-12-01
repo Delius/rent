@@ -6,15 +6,14 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = Property.all
+    @properties = Property.paginate page: params[:page], :per_page => 4
   end
 
   def create
     @property = Property.new(property_params)
 
     if @property.save
-      redirect_to property_path(@property)
-
+         redirect_to property_path(@property),notice:  'Property was successfully Created.'
     else
       render "new"
     end
@@ -33,10 +32,8 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tip }
       else
         format.html { render :edit }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
       end
     end
   end

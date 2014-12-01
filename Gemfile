@@ -14,6 +14,8 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'will_paginate'
+gem 'will_paginate-foundation'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
