@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class PropertiesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should get properties" do
+    get :properties
+    assert_response :success
+  end
 end

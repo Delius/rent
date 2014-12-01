@@ -1,6 +1,15 @@
 <div class="panel callout radius">
-  <h2>RentaYeld Calculator</h2>
+  <% if user_signed_in? %>
+      Hi <%= link_to "#{current_user.email}" %>
 
-  <p>This is a simple webb app that calculate yield from property and compare to other near by</p>
+
+
+
+<% else %>
+
+    <h2>RentaYeld Calculator</h2>
+
+  <p>This is a simple web-app Calculate and compare yield from a  property </p>
   <h5>Please log in or sign up to get access</h5>
+  <%end%>
 </div>

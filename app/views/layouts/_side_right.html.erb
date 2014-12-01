@@ -1,2 +1,7 @@
 <div class="panel callout radius">
-        </div>
+  <% [:notice, :alert].each do |level| %>
+      <% if flash[level] %>
+          <div class="flash <%= level %>"><%= flash[level] %></div>
+      <% end %>
+  <% end %>
+</div>

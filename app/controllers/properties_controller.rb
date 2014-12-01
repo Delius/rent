@@ -5,6 +5,10 @@ class PropertiesController < ApplicationController
     @property = Property.new
   end
 
+  def index
+    @properties = Property.all
+  end
+
   def create
     @property = Property.new(property_params)
 
@@ -38,20 +42,6 @@ class PropertiesController < ApplicationController
   end
 
 
-  def other_properties
-
-    @property = Property.find(params[:id])
-
-    @response = HTTParty.get("http://api.nestoria.co.uk/api?place_name=#{@property.postCode}&action=search_listings&pretty=1&encoding=json&listing_type=rent&country=uk")
-
-    @data = @response['response']['listings']
-
-    respond_to do |format|
-
-      format.js
-    end
-
-  end
   private
 
   def property_params

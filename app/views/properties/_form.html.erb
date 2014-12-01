@@ -1,14 +1,11 @@
 <%= simple_form_for(@property, html: {class: 'form-horizontal' }) do |f| %>
+    <div class="panel">
+      <%= f.input :postCode, label: "Post Code (First part only) the or place name ", placeholder: ":)", input_html: {class: 'form-control'}, required: true %>
+      <%= f.input :phone_nr, label: "Phone Number ", placeholder: ":)", input_html: {class: 'form-control'}, required: false %>
 
- <div class="panel">
-	<%= f.input :postCode, label: "Post Code of the property ", placeholder: ":)", input_html: {class: 'form-control'}, required: false %>
-  	<%= f.input :phone_nr, label: "Phone Number ", placeholder: ":)", input_html: {class: 'form-control'}, required: false %>
+      <%= f.input :propertyRent, label: "Rent amount / month ", placeholder: ":)", input_html: {class: 'form-control'}, required: true %>
+      <%= f.input :propertyCost, label: "Cost of the Property ", placeholder: ":)", input_html: {class: 'form-control'}, required: true %>
 
-   <%= f.input :propertyRent, label: "Rent amount / month ", placeholder: ":)", input_html: {class: 'form-control'}, required: false %>
-  	<%= f.input :propertyCost, label: "Cost of the Property ", placeholder: ":)", input_html: {class: 'form-control'}, required: false %>
-
-    <%= f.button :submit, "Taking home?" %>
-
-  </div>
-
+      <%= f.button :submit, "Calculate?" %>
+    </div>
 <% end %>

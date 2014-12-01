@@ -1,10 +1,10 @@
 <div class="row">
 
   <div class="panel">
-    
+
     <h3>Property summary</h3>
     <h5>Return/Year <span> <%= number_to_currency(@property.year_return, { unit: "£"}) %></span> or <span> <%=(@property.year_return_percent).round(2)%>%</span></h5>
-    
+
   </div>
 
 </div>
@@ -22,7 +22,7 @@
       <tbody>
 
       <tr>
-        <th>Post Code</th>
+        <th>Post Code/Place</th>
         <td><%=@property.postCode%></td>
       </tr>
       <tr>
@@ -42,7 +42,7 @@
         <td><%=(@property.year_return_percent).round(2)%>%</td>
       </tr>
     </tbody>
-  		
+
   	</table>
 
   </div>
@@ -53,7 +53,6 @@
 
 
     <div class="content"></div>
-
   </div>
 
 </div>
